@@ -635,7 +635,7 @@
             update(args) {
                 if (args.scroll) {
                     handleListScroll();
-                    node.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+                    // node.scrollIntoView({ behavior: 'auto', block: 'nearest' });
                 }
             },
         };
