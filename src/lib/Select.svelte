@@ -43,6 +43,7 @@
     export let required = false;
     export let closeListOnChange = true;
     export let clearFilterTextOnBlur = true;
+    export let mixedOrder = false;
 
     export let createGroupHeaderItem = (groupValue, item) => {
         return {
@@ -160,6 +161,19 @@
         groupFilter(groupValues).forEach((groupValue) => {
             if (groups[groupValue]) sortedGroupedItems.push(...groups[groupValue]);
         });
+
+        if (mixedOrder) {
+            sortedGroupedItems.sort((a, b) => {
+                const groupA = groupBy(a), groupB = groupBy(b)
+                if ((groupA || a[label]) > (groupB || b[label])) {
+                    return 1
+                } else if ((groupA || a[label]) < (groupB || b[label])) {
+                    return -1
+                } else {
+                    return 0
+                }
+            })
+        }
 
         return sortedGroupedItems;
     }
