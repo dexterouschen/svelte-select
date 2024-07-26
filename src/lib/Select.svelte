@@ -233,7 +233,7 @@
 
     function checkHoverSelectable(startingIndex = 0, ignoreGroup) {
         hoverItemIndex = startingIndex < 0 ? 0 : startingIndex;
-        if (!ignoreGroup && groupBy && filteredItems[hoverItemIndex] && !filteredItems[hoverItemIndex].selectable) {
+        if (!ignoreGroup && groupBy && filteredItems[hoverItemIndex] && !filteredItems[hoverItemIndex].selectable && !mixedOrder) {
             setHoverIndex(1);
         }
     }
